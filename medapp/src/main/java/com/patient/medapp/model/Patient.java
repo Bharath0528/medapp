@@ -1,7 +1,7 @@
 package com.patient.medapp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,8 +17,13 @@ public class Patient {
     private String contactNumber;
     private String medicalInfo;
 
-    public Patient() {} // No-args constructor
+    // ✅ One-to-many relationship with Appointment
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<Appointment> appointments = new ArrayList<>();
 
+    public Patient() {}
+
+    // Optionally add constructor if needed for testing
     public Patient(Long id, String name, String email, int age, String contactNumber, String medicalInfo) {
         this.id = id;
         this.name = name;
@@ -28,11 +33,7 @@ public class Patient {
         this.medicalInfo = medicalInfo;
     }
 
-    // All getters and setters
-
-
-    // Getters and Setters
-
+    // Getters & Setters
     public Long getId() {
         return id;
     }
