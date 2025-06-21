@@ -52,3 +52,12 @@ cd medapp
 spring.datasource.url=jdbc:mysql://localhost:3306/patient_system
 spring.datasource.username=root
 spring.datasource.password=YOUR_PASSWORD
+
+## 📘 Swagger API Documentation
+
+Swagger is used to test and visualize REST APIs.
+
+🔗 [Live Swagger UI (Render)](https://your-backend-url.onrender.com/swagger-ui/index.html)
+
+![Swagger Screenshot](src/main/resources/static/swagger.png)
+
