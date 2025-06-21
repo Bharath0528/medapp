@@ -1,0 +1,15 @@
+C:\medapp\src\main\java\com\patient\medapp\config\OpenApiConfig.java
+C:\medapp\src\main\java\com\patient\medapp\config\SecurityConfig.java
+C:\medapp\src\main\java\com\patient\medapp\controller\AppointmentController.java
+C:\medapp\src\main\java\com\patient\medapp\controller\PatientController.java
+C:\medapp\src\main\java\com\patient\medapp\dto\AppointmentDTO.java
+C:\medapp\src\main\java\com\patient\medapp\dto\PatientDTO.java
+C:\medapp\src\main\java\com\patient\medapp\MedappApplication.java
+C:\medapp\src\main\java\com\patient\medapp\model\Appointment.java
+C:\medapp\src\main\java\com\patient\medapp\model\Patient.java
+C:\medapp\src\main\java\com\patient\medapp\repository\AppointmentRepository.java
+C:\medapp\src\main\java\com\patient\medapp\repository\PatientRepository.java
+C:\medapp\src\main\java\com\patient\medapp\service\AppointmentService.java
+C:\medapp\src\main\java\com\patient\medapp\service\impl\AppointmentServiceImpl.java
+C:\medapp\src\main\java\com\patient\medapp\service\impl\PatientServiceImpl.java
+C:\medapp\src\main\java\com\patient\medapp\service\PatientService.java

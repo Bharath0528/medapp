@@ -1,0 +1,15 @@
+com\patient\medapp\dto\AppointmentDTO.class
+com\patient\medapp\service\impl\AppointmentServiceImpl.class
+com\patient\medapp\config\OpenApiConfig.class
+com\patient\medapp\dto\PatientDTO.class
+com\patient\medapp\repository\PatientRepository.class
+com\patient\medapp\model\Patient.class
+com\patient\medapp\service\AppointmentService.class
+com\patient\medapp\service\PatientService.class
+com\patient\medapp\model\Appointment.class
+com\patient\medapp\controller\AppointmentController.class
+com\patient\medapp\config\SecurityConfig.class
+com\patient\medapp\MedappApplication.class
+com\patient\medapp\service\impl\PatientServiceImpl.class
+com\patient\medapp\controller\PatientController.class
+com\patient\medapp\repository\AppointmentRepository.class

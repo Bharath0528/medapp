@@ -1,0 +1,100 @@
+<!-- ✅ FILE: appointment-booking.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Appointment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1588776814546-ec7b15fb60dc');
+      background-size: cover;
+      background-position: center;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 10px;
+      width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    input, select, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0069d9;
+    }
+  </style>
+</head>
+<body>
+<div class="form-container">
+  <h2>Book Appointment</h2>
+  <input type="text" id="doctorName" placeholder="Doctor Name" required>
+  <input type="text" id="department" placeholder="Department" required>
+  <label for="slot">Select Time Slot:</label>
+  <select id="slot"></select>
+  <input type="number" id="patientId" placeholder="Patient ID" required>
+  <button onclick="bookAppointment()">Book</button>
+</div>
+
+<script>
+  async function loadAvailableSlots() {
+    const response = await fetch('/api/appointments/available-slots');
+    const slots = await response.json();
+    const select = document.getElementById('slot');
+    select.innerHTML = "";
+    slots.forEach(time => {
+      const option = document.createElement('option');
+      option.value = time;
+      option.textContent = time;
+      select.appendChild(option);
+    });
+  }
+
+  async function bookAppointment() {
+    const date = new Date().toISOString().split('T')[0]; // today's date
+    const time = document.getElementById('slot').value;
+    const fullDateTime = `${date}T${time}`;
+
+    const appointment = {
+      doctorName: document.getElementById('doctorName').value,
+      department: document.getElementById('department').value,
+      appointmentDateTime: fullDateTime,
+      patientId: parseInt(document.getElementById('patientId').value)
+    };
+
+    const response = await fetch('/api/appointments/book', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(appointment)
+    });
+
+    if (response.ok) {
+      alert("✅ Appointment Booked Successfully!");
+      window.location.href = '/appointment-view.html';
+    } else {
+      const err = await response.text();
+      alert("❌ Failed to book: " + err);
+    }
+  }
+
+  loadAvailableSlots(); // Load slots on page load
+</script>
+</body>
+</html>
